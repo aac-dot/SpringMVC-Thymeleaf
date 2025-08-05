@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="#" method="POST" th:action="@{/animal}" th:object="messageForm">
+        <label for="animalText">Enter an Animal: </label>
+        <input type="text" id="animalText" name="animalText" th:field="*{name}">
+
+        <label for="adjective">Enter an Adjective:</label>
+        <input type="text" id="adjective" name="adjective" th:field="*{adjective}">
+
+        <input type="submit">
+    </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Adjective</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="animal : ${animals}">
+                <td th:text="${animal.name}">Name</td>
+                <td th:text="${animal.adjective}">Adjective</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <h1 th:if="${#lists.size(animals) > 5}" th:text="I think that's enough!">I think that's enough!</h1>
+    <h1 th:if="${#lists.size(animals) <= 5}" th:text="Hello, homepage!">Hello, homepage!</h1>
+</body>
+</html>
