@@ -19,4 +19,11 @@ public class HomeController {
 
         return "home";
     }
+
+    @RequestMapping("/simplehome")
+    public String getSimpleHome(Model model) {
+        model.addAttribute("firstVisit", true);
+
+        return "home";
+    }
 }

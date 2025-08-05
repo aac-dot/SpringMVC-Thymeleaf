@@ -6,7 +6,14 @@
 </head>
 <body>
     <h1>Hello, homepage</h1>
+
+    <form action="#" method="POST" th:action="@{/simplehome}" >
+        <input type="submit" value="Visit me">
+    </form>
+    <h1 th:if="${firstVisit}">Hello, homepage!</h1>
+    <h1 th:unless="${firstVisit}">Welcome back</h1>
+
     <h1 th:text="${welcomeMessage}">Current time</h1>
-    <h1 th:each="msg : ${greetings}" th:text="${msg}" th:unless="${msg.contains('Goodbye')}">Customize greeting message</h1>
+    <h1 th:each="msg : ${greetings}" th:text="${msg}" th:if="${firstVisit}" th:unless="${msg.contains('Goodbye')}">Customize greeting message</h1>
 </body>
 </html>
