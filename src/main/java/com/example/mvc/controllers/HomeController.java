@@ -15,6 +15,7 @@ public class HomeController {
 
         // The attribute name should have the same name that is in home.html
         model.addAttribute("welcomeMessage", Instant.now().toString());
+        model.addAttribute("greetings", new String[]{"Hi", "Hello", "Goodbye"});
 
         return "home";
     }

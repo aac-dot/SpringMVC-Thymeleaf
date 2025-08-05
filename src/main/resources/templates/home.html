@@ -7,5 +7,6 @@
 <body>
     <h1>Hello, homepage</h1>
     <h1 th:text="${welcomeMessage}">Current time</h1>
+    <h1 th:each="msg : ${greetings}" th:text="${msg}" th:unless="${msg.contains('Goodbye')}">Customize greeting message</h1>
 </body>
 </html>
