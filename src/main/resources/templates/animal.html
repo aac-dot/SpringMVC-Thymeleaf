@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="#" method="POST" th:action="@{/animal}" th:object="messageForm">
+    <form action="#" method="POST" th:action="@{/animal}" th:object="${animalForm}">
         <label for="animalText">Enter an Animal: </label>
         <input type="text" id="animalText" name="animalText" th:field="*{name}">
 
@@ -31,7 +31,7 @@
     </table>
 
 
-    <h1 th:if="${#lists.size(animals) > 5}" th:text="I think that's enough!">I think that's enough!</h1>
-    <h1 th:if="${#lists.size(animals) <= 5}" th:text="Hello, homepage!">Hello, homepage!</h1>
+    <!--<h1 th:if="${#lists.size(animals) > 5}" th:text="I think that's enough!">I think that's enough!</h1>
+    <h1 th:if="${#lists.size(animals) <= 5}" th:text="Hello, homepage!">Hello, homepage!</h1>-->
 </body>
 </html>
